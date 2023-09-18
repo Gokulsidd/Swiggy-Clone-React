@@ -1,0 +1,39 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "this is for practice",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gokulsidd/Namaste-react-live.git"
+  },
+  "author": "Gokul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gokulsidd/Namaste-react-live/issues"
+  },
+  "homepage": "https://github.com/Gokulsidd/Namaste-react-live#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.17",
+    "autoprefixer": "^10.4.15",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.9.3",
+    "postcss": "^8.4.29",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "browserslist": "^4.21.10",
+    "core-js": "^3.32.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
