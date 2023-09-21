@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from 'react-redux';
 
 //routing
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -11,14 +12,16 @@ import Footer from "./src/components/footer";
 import About from "./src/pages/about";
 import RestaurantInfo from "./src/components/restaurantInfo";
 import ErrorMessage from "./src/components/error";
+import store from "./utils/store";
+
 
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </Provider>
   );
 };
 

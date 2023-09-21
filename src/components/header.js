@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 //img
 import logo from "../assets/img/GoodFoods.png";
 import offerIcon from "../assets/img/icons8-offer-50.png";
@@ -21,6 +22,7 @@ const Logo = () => (
 );
 
 const NavBar = () => {
+  const cartItems = useSelector(store => store.cart.items )
   return (
     <div className='lg:block max-sm:hidden  md:block'>
       <ul className="flex gap-9 ">
@@ -59,7 +61,7 @@ const NavBar = () => {
           <svg className="fill-white stroke-black stroke-2 " viewBox="-1 0 37 32">
             <path className=''  d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z"></path>
           </svg>
-            <span className="absolute left-1.5 bottom-0.5 text-sm">0</span></span>
+            <span data-testid='cartItems' className="absolute left-1.5 bottom-0.5 text-sm">{cartItems.length}</span></span>
           Cart
         </li>
       </ul>

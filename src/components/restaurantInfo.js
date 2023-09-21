@@ -16,17 +16,19 @@ const RestaurantInfo = () => {
   const isOnline = useOnlineStatus();
   const [restaurantInfo , restaurantMenu] = useRestaurantFullData(resId);
   
-  console.log(restaurantInfo)
   const menuTitle = restaurantMenu?.map((restaurant) => restaurant?.card?.card?.title)
   const recommendedItems = restaurantMenu[1]?.card?.card?.itemCards?.map((item) =>item.card.info)
-  const [items , setItems] = useState([recommendedItems])
+  const [items , setItems] = useState([])
 
-  console.log('1st')
   const getCategoryItems = (title , restaurantMenu) => {
     const itemData  = restaurantMenu.map((menu) => {
       if(menu?.card?.card?.title){
         if(menu?.card?.card?.title === title){
-          return menu?.card?.card?.itemCards?.map((item) =>item.card.info)
+          if(menu?.card?.card?.categories){
+            return menu.card.card.categories.flatMap((category) => category.itemCards.map((item) => item.card.info))
+          }else{
+            return menu.card.card.itemCards.map((item) => item.card.info)
+          }
         }else{
           return null
         }
@@ -34,7 +36,6 @@ const RestaurantInfo = () => {
         return null
       }
     })
-    console.log('2st' , itemData)
     setItems(itemData)
   }
 
@@ -71,10 +72,10 @@ const RestaurantInfo = () => {
               </div>
             </div>
           </div>
-          <div className="h-[300px] md:w-[300px] lg:w-[400px]  p-2 m-2 overflow-y-scroll bg-slate-50" >
-            <ul className="">{menuTitle?.map((title) => title === undefined ? null : <li className="max-w-lg bg-slate-50 my-1 p-1 text-center cursor-pointer hover:bg-slate-200 rounded-sm" onClick={() => { getCategoryItems(title , restaurantMenu)}} >{title}</li> )}</ul>
+          <div className="h-[300px] md:w-[300px] lg:w-[400px]  p-2 m-2 overflow-y-scroll bg-slate-50 "  >
+            <ul data-testid='categoryContainer'>{menuTitle?.map((title , index) => title === undefined ? null : <li  key={index} className="max-w-lg bg-slate-50 my-1 p-1 text-center cursor-pointer hover:bg-slate-200 rounded-sm" onClick={() => { getCategoryItems(title , restaurantMenu)}} >{title}</li> )}</ul>
           </div>
-          <div className="h-[620px]  py-2 m-2 col-span-2 row-span-2 overflow-y-scroll bg-slate-50">
+          <div className="h-[620px]  py-2 m-2 col-span-2 row-span-2 overflow-y-scroll bg-slate-50" data-testid='dishCardContainer'>
             {items.length <= 1 ? recommendedItems.map((i) =><DishCard key={i.id} {...i} /> ) : items.map((item) =>  item ? item.map((i) =><DishCard key={i.id} {...i} />) : null) }
           </div>
         </div>
