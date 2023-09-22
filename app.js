@@ -12,6 +12,7 @@ import Footer from "./src/components/footer";
 import About from "./src/pages/about";
 import RestaurantInfo from "./src/components/restaurantInfo";
 import ErrorMessage from "./src/components/error";
+import Cart from "./src/pages/cart";
 import store from "./utils/store";
 
 
@@ -44,6 +45,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantInfo />,
+        errorElement: <ErrorMessage />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
         errorElement: <ErrorMessage />,
       },
     ],

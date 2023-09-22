@@ -56,6 +56,7 @@ const NavBar = () => {
         </svg>
           Sign In
         </li>
+        <Link to='/cart' >
         <li className="py-7 pr-4  min-w-fit flex items-center text-md font-semibold cursor-pointer group hover:text-orange-400">
         <span className=" relative h-5 w-5 mx-2  top-0.5 fill-slate-600">
           <svg className="fill-white stroke-black stroke-2 " viewBox="-1 0 37 32">
@@ -64,6 +65,7 @@ const NavBar = () => {
             <span data-testid='cartItems' className="absolute left-1.5 bottom-0.5 text-sm">{cartItems.length}</span></span>
           Cart
         </li>
+        </Link>
       </ul>
     </div>
   );

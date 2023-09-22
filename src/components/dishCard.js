@@ -9,13 +9,15 @@ const DishCard = ({
     ratings,
     isVeg,
     imageId,
-    description
+    description,
+    forCartDetails,
 }) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(store => store.cart.items) 
 
     const handleAddItem = () => {
-        dispatch(addItems(name))
+        console.log(forCartDetails)
+        dispatch(addItems(forCartDetails))
     }
     const handleRemoveItem = () => {
         dispatch(removeItems())

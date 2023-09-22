@@ -76,7 +76,7 @@ const RestaurantInfo = () => {
             <ul data-testid='categoryContainer'>{menuTitle?.map((title , index) => title === undefined ? null : <li  key={index} className="max-w-lg bg-slate-50 my-1 p-1 text-center cursor-pointer hover:bg-slate-200 rounded-sm" onClick={() => { getCategoryItems(title , restaurantMenu)}} >{title}</li> )}</ul>
           </div>
           <div className="h-[620px]  py-2 m-2 col-span-2 row-span-2 overflow-y-scroll bg-slate-50" data-testid='dishCardContainer'>
-            {items.length <= 1 ? recommendedItems.map((i) =><DishCard key={i.id} {...i} /> ) : items.map((item) =>  item ? item.map((i) =><DishCard key={i.id} {...i} />) : null) }
+            {items.length <= 1 ? recommendedItems.map((i) =><DishCard key={i.id} {...i} forCartDetails={i} /> ) : items.map((item) =>  item ? item.map((i) =><DishCard key={i.id} {...i} forCartDetails={i} />) : null) }
           </div>
         </div>
       </div>
