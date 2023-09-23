@@ -12,7 +12,7 @@ const RestaurantList = ({allData }) => {
         <div className="grid  grid-cols-1 gap-10 px-32 mr-100px md:grid-cols-3 lg:grid-cols-4 ">
         {allData?.map((restaurant) => {
             return (
-              <Link to={'/restaurant/' + restaurant?.info?.id  } key={restaurant?.info?.id}  ><RestaurantCard {...restaurant?.info} /></Link>
+              <Link to={'/restaurant/' + restaurant?.info?.id  } key={restaurant?.info?.id}  ><RestaurantCard {...restaurant?.info} fullData={restaurant} /></Link>
             );
           })
         }

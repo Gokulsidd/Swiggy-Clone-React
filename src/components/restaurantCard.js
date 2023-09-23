@@ -1,8 +1,10 @@
+import { useDispatch } from "react-redux";
 
 //img
 import star from "../assets/img/rating.png";
 //constants
 import { URL_IMG } from "../assets/constants";
+import { currentRestaurantInfo } from '../../utils/restaurantSlice'
 
 const RestaurantCard = ({
     name,
@@ -10,9 +12,14 @@ const RestaurantCard = ({
     cuisines,
     areaName,
     cloudinaryImageId,
+    fullData
   }) => {
+    const dispatch = useDispatch();
+    const getCurrentRestaurantInfo = () => {
+      dispatch(currentRestaurantInfo(fullData))
+    }
     return (
-      <div className="w-72 md:w-full lg:w-full   hover:scale-95 transition duration-100 rounded-xl">
+      <div className="w-72 md:w-full lg:w-full   hover:scale-95 transition duration-100 rounded-xl" onClick={() => getCurrentRestaurantInfo()} >
         <img
           src={URL_IMG + cloudinaryImageId}
           className="w-full h-44 rounded-xl shadow-xl object-cover"

@@ -1,8 +1,12 @@
-import { UseSelector, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 
 const Cart = () => {
     const cartItems = useSelector(store => store.cart.items)
-    const totalAmount = cartItems.map((item) => item.price / 100 ).reduce((acc,amount) => acc + amount )
+    const totalAmount = cartItems ? cartItems.map((item) => item.price / 100 ).reduce((acc,amount) => acc + amount ) : null
+
+    const currentRestaurantInfo = useSelector(store => store.restaurant.items)
+    console.log(currentRestaurantInfo)
+
     return (
         <div className="min-h-screen">
             <div className="flex-1 max-w-6xl  mx-auto p-4 bg-slate-100 ">
@@ -10,11 +14,11 @@ const Cart = () => {
                 <div className="min-h-[570px] max-w-sm   mx-auto relative bg-white  shadow-md">
                     <div className="header py-4 px-7  flex header" >
                         <div className="w-1/4  " >
-                        <img className="w-14 h-14 text-xs bg-slate-300  mx-auto " src={''} bg-slate-100  alt="restaurant-img" />
+                        <img className="w-14 h-14 text-xs bg-slate-300  mx-auto " src={currentRestaurantInfo?.info?.cloudinaryImageId} bg-slate-100  alt="restaurant-img" />
                         </div>
                         <div className="w-3/4 overflow-hidden text-ellipsis whitespace-nowrap" >
-                            <p className="text-2xl font-medium">Restaurant name</p>
-                            <p className="text-sm italic">Restaurant locality</p>
+                            <p className="text-2xl font-medium">{currentRestaurantInfo?.info?.name}</p>
+                            <p className="text-sm italic">{currentRestaurantInfo?.info?.locality}</p>
                         </div>
                     </div>
                     <div>

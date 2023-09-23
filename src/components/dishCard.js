@@ -1,7 +1,7 @@
 import { URL_IMG } from "../assets/constants";
 import { addItems , removeItems , clearCart} from '../../utils/cartSlice';
 
-import { useDispatch ,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const DishCard = ({
     name,
@@ -13,10 +13,8 @@ const DishCard = ({
     forCartDetails,
 }) => {
     const dispatch = useDispatch();
-    const cartItems = useSelector(store => store.cart.items) 
 
     const handleAddItem = () => {
-        console.log(forCartDetails)
         dispatch(addItems(forCartDetails))
     }
     const handleRemoveItem = () => {
