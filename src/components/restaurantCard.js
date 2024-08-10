@@ -18,6 +18,7 @@ const RestaurantCard = ({
     const getCurrentRestaurantInfo = () => {
       dispatch(currentRestaurantInfo(fullData))
     }
+    console.log(URL_IMG + cloudinaryImageId)
     return (
       <div className="w-72 md:w-full lg:w-full   hover:scale-95 transition duration-100 rounded-xl" onClick={() => getCurrentRestaurantInfo()} >
         <img

@@ -11,12 +11,12 @@ const useRestaurants = () => {
       }, []);
 
     async function getRestaurantData() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.1085242&lng=77.3410656&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        const jsonData = await data.json();
-        
-        console.log('asunc')
-        setAllRestaurants(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurantData(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.1085242&lng=77.3410656&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const jsonData = await data.json()
+  
+        console.log('async')
+        setAllRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurantData(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         
       } 
     console.log('effect2')

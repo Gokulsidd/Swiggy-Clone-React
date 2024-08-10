@@ -15,8 +15,9 @@ const useRestaurantFullData = (resId) => {
     try {
       const data = await fetch(URL_RESTAURANT_INFO + resId);
       const json = await data.json();
-      setRestaurantInfo(json.data?.cards[0]?.card?.card?.info);
-      setRestaurantMenu(Object.values(json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards))
+      console.log(json)
+      setRestaurantInfo(json.data?.cards[2]?.card?.card?.info);
+      setRestaurantMenu(Object.values(json.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards))
     } catch (error) {
       console.error("Error fetching restaurant data:", error);
     }

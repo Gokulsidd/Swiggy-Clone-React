@@ -6,6 +6,7 @@ import { filterRestaurants } from "../../utils/helper";
 //components
 import RestaurantList from "./restaurantList";
 import FilteredRestaurantList from "./filteredRestaurantList";
+import { restaurantList } from "../assets/constants";
 
 
 const Body = () => {
@@ -15,6 +16,7 @@ const Body = () => {
   
   const [[filteredRestaurantData , setFilteredRestaurantData], [allRestaurants]] = useRestaurants()
   console.log(filteredRestaurantData)
+  
   
   console.log('body')
   return (
